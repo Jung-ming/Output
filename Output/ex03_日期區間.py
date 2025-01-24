@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 def 取得日期區間(起始日期, 結束日期):
     起始日期 = datetime.strptime(起始日期, "%Y/%m/%d")
     結束日期 = datetime.strptime(結束日期, "%Y/%m/%d")
+    # 測試用代碼
+    # 注意
 
     日期區間 = []
     當前日期 = 起始日期
