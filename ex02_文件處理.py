@@ -2,13 +2,13 @@ import pandas
 import pandas as pd
 from ex04_資料處理 import *
 from ex03_日期區間 import 取得日期區間
+# import pandas.io.formats.style
 import platform
 import os
 
 
 def 獲取桌面路徑():
     # 獲取使用者電腦系統 windows Linux等
-    # test
     系統 = platform.system()
     目錄 = os.path.expanduser("~")
 
