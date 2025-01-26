@@ -2,8 +2,8 @@ import sys
 import Images
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QVBoxLayout, QWidget, \
-    QMessageBox, QProgressDialog, QTextEdit, QStatusBar
-from PyQt5.QtCore import Qt, QDate
+    QMessageBox, QStatusBar
+from PyQt5.QtCore import Qt
 from PyQt5 import QtWidgets, QtCore
 from ex02_文件處理 import 文件讀取與輸出
 

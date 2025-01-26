@@ -1,8 +1,5 @@
-import pandas
-import pandas as pd
 from ex04_資料處理 import *
 from ex03_日期區間 import 取得日期區間
-# import pandas.io.formats.style
 import platform
 import os
 
@@ -24,8 +21,6 @@ def 獲取桌面路徑():
 
 
 def 文件讀取(文件路徑):
-    # dtype={'開始時間':str} 可以用來設定讀取時的資料型態
-    # 避免自動出不想要的結果 (目前不用這麼做了，先刪掉)
     data = pd.read_excel(f'{文件路徑}', header=1, sheet_name=['DIP', 'SMT'])
     data_DIP = data['DIP']
     data_DIP = data_DIP.assign(首件確認='', 移轉註記='', 尾數註記='')
@@ -59,17 +54,6 @@ def 格式更改(抓取日期, data):
     桌面路徑 = 獲取桌面路徑()
     writer = pd.ExcelWriter(f'{桌面路徑}/{輸出檔名}', engine='xlsxwriter', datetime_format='mm/dd hh:mm')
 
-    # for 工作表 in data:
-    #     for index, value in enumerate(工作表['生管備註']):
-    #         formatted_date = value.strftime("%#m/%#d")
-    #         工作表.at[index, '生管備註'] = formatted_date
-    #     for index, value in enumerate(工作表['開始時間']):
-    #         formatted_date = value.strftime("%#m/%#d %H:%M:%S")
-    #         工作表.at[index, '開始時間'] = formatted_date
-    #     for index, value in enumerate(工作表['結束時間']):
-    #         formatted_date = value.strftime("%#m/%#d %H:%M:%S")
-    #         工作表.at[index, '結束時間'] = formatted_date
-
     # 一些設定
     列寬_10 = [0, 1, 9]
     列寬_5 = [43, 44, 46]
@@ -89,8 +73,6 @@ def 格式更改(抓取日期, data):
     黃色格式 = writer.book.add_format({'bg_color': '#ffff00', 'valign': 'vcenter', 'font_size': 10, 'text_wrap': True})
     日期格式_置中 = writer.book.add_format({'align': 'center', 'valign': 'vcenter', 'font_size': 10})
     日期格式_靠左 = writer.book.add_format({'valign': 'vcenter', 'font_size': 10})
-    # 若要設置標題格式，則需要先用下方程式碼消除標題單元格格式
-    # pandas.io.formats.excel.ExcelFormatter.header_style = None
     # 設置格式
     # 字體 'font-family': 'Times New Roman'
     # 大小 'font-size': '12pt'
